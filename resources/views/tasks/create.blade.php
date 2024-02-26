@@ -13,7 +13,7 @@
     @endif
     <form method="POST" action="/tasks">
         @csrf
-        <div class="form-group">
+        <div class="form-group" style="margin-bottom: 20px;">
             <label for="description">Task Description</label>
             <input class="form-control" name="description" />
         </div>

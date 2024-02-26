@@ -27,6 +27,7 @@
                 </form>
             @endif
 
+            <a href="/tasks/edit/{{ $task->id }}" class="btn btn-info btn-block">Edit Task</a>
         </div>
     </div>
     @endforeach
