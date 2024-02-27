@@ -77,6 +77,7 @@ class TasksController extends Controller
         } else {
             $task = Task::findOrFail($id);
             $task->description = $request->input('description');
+            $task->edit_at = now();
             $task->save();
 
             return redirect('/');
