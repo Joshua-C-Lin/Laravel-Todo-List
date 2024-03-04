@@ -19,6 +19,15 @@ class TasksController extends Controller
         ]);
     }
 
+    public function getList() {
+        $tasks = Task::orderBy('completed_at')
+            ->orderBy('id', 'DESC')
+            ->get();
+
+        return response()
+        ->json($tasks);
+    }
+
     public function create() {
         return view('tasks.create');
     }
@@ -32,7 +41,7 @@ class TasksController extends Controller
             'description' => $request->description,
         ]);
 
-        return redirect('/');
+        // return redirect('/');
     }
 
 
@@ -44,26 +53,13 @@ class TasksController extends Controller
         $task->completed_at = now();
         $task->save();
 
-        return redirect('/');
+        // return redirect('/');
     }
 
     public function delete($id) {
         $task = Task::where('id', $id)->first();
 
         $task->delete();
-
-        return redirect('/');
-    }
-
-    // Todo add EDIT function
-    public function edit($id) {
-        $task = Task::where('id', $id) ->first();
-
-        $task->edit_at = now();
-
-        return view('tasks.edit', [
-            'task' => $task,
-        ]);
     }
 
     public function updateDescription(Request $request, $id) {
@@ -80,7 +76,7 @@ class TasksController extends Controller
             $task->edit_at = now();
             $task->save();
 
-            return redirect('/');
+            // return redirect('/');
         }
     }
 }
