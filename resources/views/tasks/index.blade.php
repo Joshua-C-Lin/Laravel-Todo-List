@@ -20,11 +20,6 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" href="/tasks">All Tasks</a>
-                        </li>
-                    </ul>
                     <form class="d-flex" @submit.prevent="createTask">
                         <input class="form-control me-2" v-model="description" placeholder="New Task" aria-label="Create">
                         <button class="btn btn-outline-success">Create</button>
